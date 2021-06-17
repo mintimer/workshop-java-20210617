@@ -40,4 +40,16 @@ public class MyRange2 {
         }
         return endNumber - 1;
     }
+
+    public String getResult() {
+        StringBuilder result = new StringBuilder();
+        int startNumber = getStartNumber();
+        int endNumber = getEndNumber();
+        for (int i = startNumber; i <= endNumber; i++) {
+            if(i != startNumber)
+                result.append(",");
+            result.append(i);
+        }
+        return result.toString();
+    }
 }

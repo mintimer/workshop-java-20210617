@@ -59,4 +59,11 @@ class MyRange2Test {
         int endNumber = myRange2.getEndNumber();
         assertEquals(9,endNumber);
     }
+
+    @Test
+    public void TrueResult(){
+        MyRange2 myRange2 = new MyRange2("(5,10)");
+        String result = myRange2.getResult();
+        assertEquals("6,7,8,9",result);
+    }
 }
