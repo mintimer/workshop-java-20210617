@@ -122,4 +122,24 @@ class MySortTest {
         List<Integer> result = mySort.sortList();
         assertEquals(expect,result);
     }
+
+    @Test
+    public void FiveValueList(){
+        List<Integer> input = new ArrayList<>();
+        input.add(5);
+        input.add(4);
+        input.add(3);
+        input.add(2);
+        input.add(1);
+        List<Integer> expect = new ArrayList<>();
+        expect.add(1);
+        expect.add(2);
+        expect.add(3);
+        expect.add(4);
+        expect.add(5);
+
+        MySort mySort = new MySort(input);
+        List<Integer> result = mySort.sortList();
+        assertEquals(expect,result);
+    }
 }
