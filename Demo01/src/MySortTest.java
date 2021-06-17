@@ -15,4 +15,13 @@ class MySortTest {
         List<Integer> expect = mySort.sortList();
         assertEquals(input,expect);
     }
+
+    @Test
+    public void OneValueList(){
+        List<Integer> input = new ArrayList<>();
+        input.add(1);
+        MySort mySort = new MySort(input);
+        List<Integer> expect = mySort.sortList();
+        assertEquals(input,expect);
+    }
 }
