@@ -24,4 +24,14 @@ class MySortTest {
         List<Integer> expect = mySort.sortList();
         assertEquals(input,expect);
     }
+
+    @Test
+    public void TwoValueList01(){
+        List<Integer> input = new ArrayList<>();
+        input.add(1);
+        input.add(2);
+        MySort mySort = new MySort(input);
+        List<Integer> expect = mySort.sortList();
+        assertEquals(input,expect);
+    }
 }
