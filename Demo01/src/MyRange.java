@@ -4,11 +4,11 @@ public class MyRange {
         int[] range = new int[]{0,0};
 
         if(input.length == 2){
-            if(input[0].startsWith("[")){
+            if(input[0].startsWith("[") && input[0].length() > 1){
                 String first = input[0].substring(1);
                 range[0] = Integer.parseInt(first);
             }
-            else if(input[0].startsWith("(")){
+            else if(input[0].startsWith("(") && input[0].length() > 1){
                 String first = input[0].substring(1);
                 range[0] = Integer.parseInt(first) + 1;
             }
@@ -17,11 +17,11 @@ public class MyRange {
                 return;
             }
 
-            if(input[1].endsWith("]")){
+            if(input[1].endsWith("]") && input[1].length() > 1){
                 String last = input[1].substring(0,input[1].length()-1);
                 range[1] = Integer.parseInt(last);
             }
-            else if(input[1].endsWith(")")){
+            else if(input[1].endsWith(")") && input[1].length() > 1){
                 String last = input[1].substring(0,input[1].length()-1);;
                 range[1] = Integer.parseInt(last) - 1;
             }
@@ -30,7 +30,7 @@ public class MyRange {
                 return;
             }
 
-            if(range[1] > range[0]) {
+            if(range[1] >= range[0]) {
                 for (int i = range[0]; i <= range[1]; i++) {
                     if(i != range[0]) {
                         System.out.print(",");
