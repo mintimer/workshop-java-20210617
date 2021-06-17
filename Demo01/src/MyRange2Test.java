@@ -20,9 +20,9 @@ class MyRange2Test {
 
     @Test
     public void StartNumberWithInclude() {
-        MyRange2 myRange2 = new MyRange2("[1,5]");
+        MyRange2 myRange2 = new MyRange2("[10,5]");
         int startNumber = myRange2.getStartNumber();
-        assertEquals(1,startNumber);
+        assertEquals(10,startNumber);
     }
 
     @Test
@@ -38,10 +38,25 @@ class MyRange2Test {
         boolean isInclude = myRange2.EndWithInclude();
         assertTrue(isInclude);
     }
+
     @Test
     public void EndWithExclude() {
         MyRange2 myRange2 = new MyRange2("[1,5)");
         boolean isExclude = myRange2.EndWithExclude();
         assertTrue(isExclude);
+    }
+
+    @Test
+    public void EndNumberWithInclude(){
+        MyRange2 myRange2 = new MyRange2("[1,10]");
+        int endNumber = myRange2.getEndNumber();
+        assertEquals(10,endNumber);
+    }
+
+    @Test
+    public void EndNumberWithExclude(){
+        MyRange2 myRange2 = new MyRange2("[1,10)");
+        int endNumber = myRange2.getEndNumber();
+        assertEquals(9,endNumber);
     }
 }

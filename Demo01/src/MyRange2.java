@@ -30,4 +30,14 @@ public class MyRange2 {
     public boolean EndWithExclude() {
         return  input.endsWith(")");
     }
+
+    public int getEndNumber() {
+        int indexOfComma = input.indexOf(",");
+        String stringNum = input.substring(indexOfComma + 1,input.length()-1);
+        int endNumber = Integer.parseInt(stringNum);
+        if(EndWithInclude()){
+            return endNumber;
+        }
+        return endNumber - 1;
+    }
 }
