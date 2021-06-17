@@ -74,4 +74,20 @@ class MySortTest {
         List<Integer> result = mySort.sortList();
         assertEquals(expect,result);
     }
+
+    @Test
+    public void ThreeValueList02(){
+        List<Integer> input = new ArrayList<>();
+        input.add(2);
+        input.add(1);
+        input.add(3);
+        List<Integer> expect = new ArrayList<>();
+        expect.add(1);
+        expect.add(2);
+        expect.add(3);
+
+        MySort mySort = new MySort(input);
+        List<Integer> result = mySort.sortList();
+        assertEquals(expect,result);
+    }
 }
