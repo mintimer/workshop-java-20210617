@@ -31,4 +31,17 @@ class MyRange2Test {
         int startNumber = myRange2.getStartNumber();
         assertEquals(11,startNumber);
     }
+
+    @Test
+    public void EndWithInclude() {
+        MyRange2 myRange2 = new MyRange2("[1,5]");
+        boolean isInclude = myRange2.EndWithInclude();
+        assertTrue(isInclude);
+    }
+    @Test
+    public void EndWithExclude() {
+        MyRange2 myRange2 = new MyRange2("[1,5)");
+        boolean isExclude = myRange2.EndWithExclude();
+        assertTrue(isExclude);
+    }
 }

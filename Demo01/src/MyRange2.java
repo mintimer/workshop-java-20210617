@@ -6,11 +6,11 @@ public class MyRange2 {
     }
 
     public boolean StartWithInclude() {
-        return input.charAt(0) == '[';
+        return input.startsWith("[");
     }
 
     public boolean StartWithExclude() {
-        return input.charAt(0) == '(';
+        return input.startsWith("(");
     }
 
     public int getStartNumber() {
@@ -21,5 +21,13 @@ public class MyRange2 {
             return startNumber;
         }
         return startNumber + 1;
+    }
+
+    public boolean EndWithInclude() {
+        return input.endsWith("]");
+    }
+
+    public boolean EndWithExclude() {
+        return  input.endsWith(")");
     }
 }
