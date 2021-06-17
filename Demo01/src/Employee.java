@@ -3,11 +3,21 @@ public class Employee {
     private int id;
     private String firstname;
     private String lastname;
-   //Department department;
+    //Department department;
     private String positionName;
 
+    //Constructor
+    public Employee() {
+        this("?","?");
+    }
+
+    public Employee(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
     // Behaviors or Methods
-    void doSmt(){
+    void doSmt() {
 
     }
 
