@@ -12,7 +12,7 @@ public class Employee {
     }
 
     public String getFullName() {
-        return "FAKE RESULT";
+        return firstname + " : " + lastname;
     }
 
     String getPositionName() {
