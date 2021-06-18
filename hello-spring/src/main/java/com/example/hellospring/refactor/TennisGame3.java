@@ -14,15 +14,27 @@ public class TennisGame3 {
 
     public String getScore() {
         String stringResult;
-        if (scorePlayer1 < 4 && scorePlayer2 < 4 && !(scorePlayer1 + scorePlayer2 == 6)) {
+        CheckScore checkScore = new CheckScore();
+        if (checkScore.isNotDeuceYet()) {
             String[] pointWords = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
             stringResult = pointWords[scorePlayer1];
-            return (scorePlayer1 == scorePlayer2) ? stringResult + "-All" : stringResult + "-" + pointWords[scorePlayer2];
+            if (checkScore.isDraw()) {
+                return stringResult + "-All";
+            }
+            return stringResult + "-" + pointWords[scorePlayer2];
         } else {
-            if (scorePlayer1 == scorePlayer2)
+            if (checkScore.isDraw()) {
                 return "Deuce";
-            stringResult = scorePlayer1 > scorePlayer2 ? namePlayer1 : namePlayer2;
-            return ((scorePlayer1 - scorePlayer2)*(scorePlayer1 - scorePlayer2) == 1) ? "Advantage " + stringResult : "Win for " + stringResult;
+            }
+
+            if (scorePlayer1 > scorePlayer2) {
+                stringResult = namePlayer1;
+            } else stringResult = namePlayer2;
+
+            if (checkScore.isAdvantage()) {
+                return "Advantage " + stringResult;
+            }
+            return "Win for " + stringResult;
         }
     }
 
@@ -35,4 +47,17 @@ public class TennisGame3 {
 
     }
 
+    private class CheckScore {
+        public boolean isNotDeuceYet() {
+            return scorePlayer1 < 4 && scorePlayer2 < 4 && !(scorePlayer1 + scorePlayer2 == 6);
+        }
+
+        public boolean isDraw() {
+            return scorePlayer1 == scorePlayer2;
+        }
+
+        public boolean isAdvantage() {
+            return (scorePlayer1 - scorePlayer2) * (scorePlayer1 - scorePlayer2) == 1;
+        }
+    }
 }
