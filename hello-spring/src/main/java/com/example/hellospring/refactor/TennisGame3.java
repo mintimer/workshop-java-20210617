@@ -2,35 +2,35 @@ package com.example.hellospring.refactor;
 
 public class TennisGame3 {
 
-    private int p2;
-    private int p1;
-    private final String p1N;
-    private final String p2N;
+    private int scorePlayer1;
+    private int scorePlayer2;
+    private final String namePlayer1;
+    private final String namePlayer2;
 
-    public TennisGame3(String p1N, String p2N) {
-        this.p1N = p1N;
-        this.p2N = p2N;
+    public TennisGame3(String namePlayer1, String namePlayer2) {
+        this.namePlayer1 = namePlayer1;
+        this.namePlayer2 = namePlayer2;
     }
 
     public String getScore() {
-        String s;
-        if (p1 < 4 && p2 < 4 && !(p1 + p2 == 6)) {
-            String[] p = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
-            s = p[p1];
-            return (p1 == p2) ? s + "-All" : s + "-" + p[p2];
+        String stringResult;
+        if (scorePlayer1 < 4 && scorePlayer2 < 4 && !(scorePlayer1 + scorePlayer2 == 6)) {
+            String[] pointWords = new String[]{"Love", "Fifteen", "Thirty", "Forty"};
+            stringResult = pointWords[scorePlayer1];
+            return (scorePlayer1 == scorePlayer2) ? stringResult + "-All" : stringResult + "-" + pointWords[scorePlayer2];
         } else {
-            if (p1 == p2)
+            if (scorePlayer1 == scorePlayer2)
                 return "Deuce";
-            s = p1 > p2 ? p1N : p2N;
-            return ((p1-p2)*(p1-p2) == 1) ? "Advantage " + s : "Win for " + s;
+            stringResult = scorePlayer1 > scorePlayer2 ? namePlayer1 : namePlayer2;
+            return ((scorePlayer1 - scorePlayer2)*(scorePlayer1 - scorePlayer2) == 1) ? "Advantage " + stringResult : "Win for " + stringResult;
         }
     }
 
     public void wonPoint(String playerName) {
         if ("player1".equals(playerName)) {
-            this.p1 += 1;
+            this.scorePlayer1 += 1;
         } else {
-            this.p2 += 1;
+            this.scorePlayer2 += 1;
         }
 
     }
