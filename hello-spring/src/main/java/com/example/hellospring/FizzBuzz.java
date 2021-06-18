@@ -5,7 +5,8 @@ public class FizzBuzz {
         MyCondition[] myConditions = new MyCondition[]{
             new FizzBuzzCondition(),
             new FizzCondition(),
-            new BuzzCondition()
+            new BuzzCondition(),
+            new KBTGCondition()
         };
 
         for (MyCondition myCondition : myConditions) {

@@ -60,7 +60,7 @@ class FizzBuzzTest {
     public void case07 () {
         FizzBuzz fizzBuzz = new FizzBuzz();
         String result = fizzBuzz.get("7");
-        assertEquals("7", result);
+        assertEquals("KBTG", result);
     }
 
     @Test
