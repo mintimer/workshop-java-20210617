@@ -6,9 +6,8 @@ public class FizzBuzz {
     public String get(String i) {
         ModThree(i);
         ModFive(i);
-        if("".equals(result)) {
+        if("".equals(result))
             return i;
-        }
         return result;
     }
 
