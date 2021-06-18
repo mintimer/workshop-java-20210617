@@ -7,6 +7,11 @@ public class DemoExtend {
     }
 }
 
+interface Process{
+    void generateHeader();
+    void generateBody();
+    void generateFooter();
+}
 
 abstract class Report {
     abstract void generateHeader();
@@ -36,8 +41,4 @@ class Report1 extends Report {
     void generateFooter() {
         System.out.println("Generate Footer");
     }
-}
-
-interface Lego{
-
 }
