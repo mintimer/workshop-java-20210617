@@ -1,13 +1,25 @@
 package com.example.hellospring;
 
 public class FizzBuzz {
+    private String result = "";
+
     public String get(String i) {
-        if (Integer.parseInt(i) % 15 == 0)
-            return "FizzBuzz";
+        ModThree(i);
+        ModFive(i);
+        if("".equals(result)) {
+            return i;
+        }
+        return result;
+    }
+
+    private void ModThree(String i) {
         if (Integer.parseInt(i) % 3 == 0)
-            return "Fizz";
+            result += "Fizz";
+    }
+
+    private void ModFive(String i) {
         if (Integer.parseInt(i) % 5 == 0)
-            return "Buzz";
-        return i;
+            result += "Buzz";
     }
 }
+
