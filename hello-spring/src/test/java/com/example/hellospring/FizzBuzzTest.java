@@ -11,8 +11,16 @@ class FizzBuzzTest {
     @DisplayName("1=>1")
     public void case01 (){
         FizzBuzz fizzBuzz = new FizzBuzz();
-        String result = fizzBuzz.get(1);
+        String result = fizzBuzz.get("1");
         assertEquals("1",result);
+    }
+
+    @Test
+    @DisplayName("2=>2")
+    public void case02 (){
+        FizzBuzz fizzBuzz = new FizzBuzz();
+        String result = fizzBuzz.get("2");
+        assertEquals("2",result);
     }
 
 }
