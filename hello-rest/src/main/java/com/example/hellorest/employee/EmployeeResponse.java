@@ -5,6 +5,14 @@ public class EmployeeResponse {
     private String fname;
     private String lname;
 
+    @Override
+    public String toString() {
+        return "EmployeeResponse{" +
+                "id=" + id +
+                ", fname='" + fname + '\'' +
+                ", lname='" + lname + '\'' +
+                '}';
+    }
 
     public EmployeeResponse() {
     }
@@ -38,4 +46,5 @@ public class EmployeeResponse {
     public int getId() {
         return id;
     }
+
 }
