@@ -15,11 +15,6 @@ public class EmployeeResponse {
         return id == that.id && Objects.equals(fname, that.fname) && Objects.equals(lname, that.lname);
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, fname, lname);
-    }
-
     public EmployeeResponse() {
     }
 
