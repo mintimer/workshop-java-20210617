@@ -18,7 +18,7 @@ public class EmployeeControllerTest {
     private TestRestTemplate restTemplate;
 
     @MockBean
-    private Random random;
+    private MyRandom random;
 
     @Test
     public void callApiWithPathVariable() {

@@ -13,7 +13,7 @@ import java.util.Random;
 public class EmployeeController {
 
     @Autowired
-    private Random random;
+    private MyRandom random;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeById(@PathVariable String id) {
