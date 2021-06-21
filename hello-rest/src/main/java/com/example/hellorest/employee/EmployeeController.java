@@ -8,8 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class EmployeeController {
 
     @GetMapping("/employee/{id}")
-    public EmployeeResponse getEmployeeById(@PathVariable int id) {
-        return new EmployeeResponse(id, "Somkiat", "Pui");
-    }
+    public EmployeeResponse getEmployeeById(@PathVariable String id) {
+        // Validate ID Number Only
+        int _id = 0;
+        try {
+            _id = Integer.parseInt(id);
+        }
+        catch (NumberFormatException ignored){
 
+        }
+        return new EmployeeResponse(_id, "Somkiat", "Pui");
+    }
 }
