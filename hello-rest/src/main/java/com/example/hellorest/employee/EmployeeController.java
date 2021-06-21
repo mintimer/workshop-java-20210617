@@ -21,7 +21,7 @@ public class EmployeeController {
         return new EmployeeResponse(_id, "Somkiat", "Pui");
     }
 
-    // employee?id=?
+    // employee?id2=?
 
     @GetMapping("/employee")
     public EmployeeResponse getEmployeeById2(@RequestParam String id) {
