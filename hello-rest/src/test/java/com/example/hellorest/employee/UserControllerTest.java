@@ -22,9 +22,16 @@ public class UserControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void callApiWithPathVariable() {
+    public void callApi() {
         UserResponse expected = UserController.getUserResponse();
         UserResponse response = restTemplate.getForObject("/user", UserResponse.class);
+        assertEquals(expected,response);
+    }
+
+    @Test
+    public void callApiWithPathVariable() {
+        UserResponseItem expected = UserController.getUserResponse().getUserResponse(3);
+        UserResponseItem response = restTemplate.getForObject("/user/3", UserResponseItem.class);
         assertEquals(expected,response);
     }
 }

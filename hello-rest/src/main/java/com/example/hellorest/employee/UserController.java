@@ -1,12 +1,5 @@
 package com.example.hellorest.employee;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.support.NullValue;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import static java.util.Arrays.asList;
 
@@ -42,11 +35,7 @@ public class UserController {
         UserResponseItem userResponseItem = null;
         try {
             _id = Integer.parseInt(id);
-            for (UserResponseItem responseItem : userResponse.getUserResponse()) {
-                if (responseItem.getId() == _id) {
-                    userResponseItem = responseItem;
-                }
-            }
+            userResponseItem = userResponse.getUserResponse(_id);
             if (userResponseItem == null) {
                 //
             }

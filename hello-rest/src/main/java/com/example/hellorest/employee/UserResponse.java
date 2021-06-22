@@ -28,4 +28,14 @@ public class UserResponse{
     public List<UserResponseItem> getUserResponse(){
         return userResponse;
     }
+
+    public UserResponseItem getUserResponse(int id){
+        UserResponseItem userResponseItem = new UserResponseItem();
+        for (UserResponseItem responseItem : userResponse) {
+            if(responseItem.getId()==id){
+                userResponseItem = responseItem;
+            }
+        }
+        return userResponseItem;
+    }
 }
