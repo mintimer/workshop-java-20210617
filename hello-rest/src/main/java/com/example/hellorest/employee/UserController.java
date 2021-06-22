@@ -13,7 +13,11 @@ import static java.util.Arrays.asList;
 @RestController
 public class UserController {
 
-    private static final UserResponse userResponse = new UserResponse(asList(
+    public static UserResponse getUserResponse() {
+        return userResponse;
+    }
+
+    static final UserResponse userResponse = new UserResponse(asList(
             new UserResponseItem(1, "Leanne Graham", "Bret", "Sincere@april.biz"
                     , new Address("Kulas Light", "Apt. 556", "Gwenborough", "92998-3874"
                     , new Geo("-37.3159", "81.1496"))

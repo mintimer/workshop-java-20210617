@@ -1,8 +1,18 @@
 package com.example.hellorest.employee;
 
+import java.util.Objects;
+
 public class Geo{
     private String lng;
     private String lat;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Geo geo = (Geo) o;
+        return Objects.equals(lng, geo.lng) && Objects.equals(lat, geo.lat);
+    }
 
     public Geo() {
     }

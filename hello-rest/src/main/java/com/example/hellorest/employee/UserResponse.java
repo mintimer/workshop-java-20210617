@@ -1,9 +1,18 @@
 package com.example.hellorest.employee;
 
 import java.util.List;
+import java.util.Objects;
 
 public class UserResponse{
     private List<UserResponseItem> userResponse;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserResponse response = (UserResponse) o;
+        return Objects.equals(userResponse, response.userResponse);
+    }
 
     public UserResponse() {
     }
