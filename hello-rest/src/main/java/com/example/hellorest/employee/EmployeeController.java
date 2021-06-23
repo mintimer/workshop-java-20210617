@@ -12,10 +12,7 @@ import java.util.Random;
 public class EmployeeController {
 
     @Autowired
-    private MyRandom random;
-
-    @Autowired
-    private EmployeeRepository employeeRepository;
+    private EmployeeService employeeService;
 
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeById(@PathVariable String id) {
@@ -27,15 +24,9 @@ public class EmployeeController {
         catch (NumberFormatException e){
             //
         }
-        // Workshop
-        int number = random.nextInt(10);
-        Optional<Employee> result = employeeRepository.findById(_id);
-        if(result.isPresent()){
-            Employee employee = result.get();
-            return new EmployeeResponse(employee.getId(), employee.getFirstName() + number, employee.getLastName());
-        }else {
-            return new EmployeeResponse();
-        }
+
+        EmployeeResponse employeeResponse = employeeService.process(_id);
+        return  employeeResponse;
     }
 
     // employee?id2=?
