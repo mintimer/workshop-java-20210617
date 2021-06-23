@@ -29,10 +29,10 @@ public class EmployeeServiceTest {
         when(repository.findById(100)).thenReturn(
                 Optional.empty()
         );
-        EmployeeResponse result = service.process(100);
-        assertEquals(0,result.getId());
-        assertNull(result.getFname());
-        assertNull(result.getLname());
+
+        Exception exception = assertThrows(EmployeeNotFoundException.class, () ->
+                service.process(100));
+        assertEquals("Exception id 100 not found",exception.getMessage());
     }
 
     @Test
