@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityNotFoundException;
+import java.util.Optional;
 import java.util.Random;
 
 @RestController
@@ -12,6 +14,9 @@ public class EmployeeController {
     @Autowired
     private MyRandom random;
 
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
     @GetMapping("/employee/{id}")
     public EmployeeResponse getEmployeeById(@PathVariable String id) {
         // Validate ID Number Only
@@ -19,13 +24,18 @@ public class EmployeeController {
         try {
             _id = Integer.parseInt(id);
         }
-        catch (NumberFormatException ignored){
-
+        catch (NumberFormatException e){
+            //
         }
         // Workshop
-
         int number = random.nextInt(10);
-        return new EmployeeResponse(_id, "Somkiat" + number, "Pui");
+        Optional<Employee> result = employeeRepository.findById(_id);
+        if(result.isPresent()){
+            Employee employee = result.get();
+            return new EmployeeResponse(employee.getId(), employee.getFirstName() + number, employee.getLastName());
+        }else {
+            return new EmployeeResponse();
+        }
     }
 
     // employee?id2=?
