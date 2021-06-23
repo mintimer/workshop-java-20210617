@@ -23,9 +23,14 @@ public class EmployeeControllerTest {
     @MockBean
     private MyRandom random;
 
+    @Autowired
+    private EmployeeRepository repository;
+
     @Test
     public void callApiWithPathVariable() {
         when(random.nextInt(anyInt())).thenReturn(5);
+
+        repository.save(new Employee(123,"Somkiat","Pui"));
 
         EmployeeResponse expected = new EmployeeResponse(123, "Somkiat5", "Pui");
         EmployeeResponse response

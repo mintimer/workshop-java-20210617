@@ -14,7 +14,7 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void foundWithID1(){
-        employeeRepository.save(new Employee("Somkiat from DB","Pui from DB"));
+        employeeRepository.save(new Employee(1, "Somkiat from DB","Pui from DB"));
         Employee employee1 = employeeRepository.getById(1);
         assertEquals(1,employee1.getId());
         assertEquals("Somkiat from DB",employee1.getFirstName());
