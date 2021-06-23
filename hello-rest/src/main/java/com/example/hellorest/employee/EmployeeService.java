@@ -23,9 +23,8 @@ public class EmployeeService {
         if(result.isPresent()){
             Employee employee = result.get();
             return new EmployeeResponse(employee.getId(), employee.getFirstName() + number, employee.getLastName());
-        }else {
-            return new EmployeeResponse();
         }
+        throw new EmployeeNotFoundException();
     }
 
     public void setRandom(MyRandom random) {
