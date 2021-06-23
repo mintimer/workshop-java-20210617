@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 import static java.util.Arrays.asList;
 
 @RestController
-public class UserController {
+public class UserControllerNA {
 
     public static UserResponse getUserResponse() {
         return userResponse;

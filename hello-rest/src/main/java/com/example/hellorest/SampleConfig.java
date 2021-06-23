@@ -1,6 +1,5 @@
 package com.example.hellorest;
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
@@ -9,7 +8,6 @@ import org.springframework.web.client.RestTemplate;
 public class SampleConfig {
     @Bean
     public RestTemplate createRestTemplate() {
-        RestTemplateBuilder rb = new RestTemplateBuilder();
-        return rb.build();
+        return new RestTemplate();
     }
 }
